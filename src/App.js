@@ -9,7 +9,7 @@ class App extends Component{
       <div className="App">
         <header className="App-header">
           <Welcome name="Varma" />
-          <Welcome name="Ram" />
+          <Welcome name={"Ram"} year={2020} />
         </header>
       </div>
     );
