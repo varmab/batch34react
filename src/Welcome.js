@@ -19,7 +19,6 @@ class Welcome extends Component{
         return(
             <div>
                 <h1 className="title" onClick={this.updateClicks}>Welcome to { this.props.name }-{this.props.year} - ({this.state.clicks})</h1>
-                <Thankyou/>
                 <label htmlFor="username">
                     <input type="text" name="username"/>
                 </label>
