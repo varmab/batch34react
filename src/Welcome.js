@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Welcome extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state={
-            clicks:0
+            clicks:0,
+            name:props.name
         }
     }
 
@@ -18,14 +20,27 @@ class Welcome extends Component{
     render(){
         return(
             <div>
-                <h1 className="title" onClick={this.updateClicks}>Welcome to { this.props.name }-{this.props.year} - ({this.state.clicks})</h1>
-                <label htmlFor="username">
-                    <input type="text" name="username"/>
-                </label>
-                <img src="logo.ong"/>
+                <h1 className="title" onClick={this.updateClicks}>Welcome to { this.state.name }-{this.props.year} - ({this.state.clicks})</h1>
             </div>
         )
     }
+}
+
+Welcome.propTypes={
+    name:PropTypes.string.isRequired,
+    year:PropTypes.number,
+    password(props, propName, component){
+        if(!(propName in props)){
+          return new Error(`missing ${propName}`)
+        }
+        if(props[propName].length < 6){
+          return new Error(`${propName} was too short`)
+        }
+    }
+}
+
+Welcome.defaultProps={
+    year:2020
 }
 
 export default Welcome;
