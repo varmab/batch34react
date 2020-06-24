@@ -7,6 +7,7 @@ import Counter from './Counter'
 import Greeting from './Greeting'
 import Todos from './Todos'
 import Users from './Users'
+import Library from './library/Library'
 
 class App extends Component{
   render(){
@@ -16,7 +17,7 @@ class App extends Component{
           <Welcome name="Varma" password="123456"/>
           <Welcome name={"Ram"} year={2021} isNewYear={true} password="123456" />
         </header>
-        <Users/>
+        <Library/>
       </div>
     );
   }

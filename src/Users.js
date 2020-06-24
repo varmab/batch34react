@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+import User from './User'
+
+
+
 class Users extends Component{
     constructor(){
         super();
@@ -12,7 +16,7 @@ class Users extends Component{
     }
 
     componentDidMount(){
-      fetch('https://jsonplaceholderxxx.typicode.com/users')
+      fetch('https://jsonplaceholder.typicode.com/users')
       .then((response)=>response.json())
       .then((users)=>{
         this.setState({
@@ -49,13 +53,13 @@ class Users extends Component{
         return(
             <div>
                 <h1>Users</h1>
-                <ul>
+                <div>
                     {
                         this.state.users.map((user)=>{
-                            return <li key={user.id}>{user.name}</li>
+                            return <User key={user.id} user={user}/>
                         })
                     }
-                </ul>
+                </div>
             </div>
         )
     }
